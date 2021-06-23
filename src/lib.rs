@@ -26,11 +26,11 @@ impl DisjointSet {
 
     // ≈ O(1)
     // Achieved with union by rank
-    pub fn union(&mut self, u: usize, v: usize) {
+    pub fn union(&mut self, u: usize, v: usize) -> bool {
         let pu = self.find(u);
         let pv = self.find(v);
         if pu == pv {
-            return;
+            return false;
         }
         // Meger low rank tree into high rank tree
         if self.ranks[pu] > self.ranks[pv] {
@@ -41,5 +41,6 @@ impl DisjointSet {
             self.parents[pv] = pu;
             self.ranks[pu] += 1;
         }
+        return true;
     }
 }
