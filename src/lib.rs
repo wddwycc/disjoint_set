@@ -21,7 +21,7 @@ impl DisjointSet {
         if self.parents[u] != u {
             self.parents[u] = self.find(self.parents[u]);
         }
-        return u;
+        return self.parents[u];
     }
 
     // ≈ O(1)
