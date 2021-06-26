@@ -16,7 +16,7 @@ impl DisjointSet {
 
     // ≈ O(1)
     // Achieved with path compression:
-    // when finding x, point itself all its ancestor to root node
+    // when finding x, point itself and all its ancestor to root node
     pub fn find(&mut self, u: usize) -> usize {
         if self.parents[u] != u {
             self.parents[u] = self.find(self.parents[u]);
@@ -25,7 +25,7 @@ impl DisjointSet {
     }
 
     // ≈ O(1)
-    // Achieved with union by rank
+    // Achieved with union by rank (merge low rank tree to high rank ones)
     pub fn union(&mut self, u: usize, v: usize) -> bool {
         let pu = self.find(u);
         let pv = self.find(v);
