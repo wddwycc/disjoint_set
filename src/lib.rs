@@ -1,7 +1,7 @@
 /// https://en.wikipedia.org/wiki/Disjoint-set_data_structure
 pub struct DisjointSet {
-    pub parents: Vec<usize>,
-    pub ranks: Vec<usize>,
+    parents: Vec<usize>,
+    ranks: Vec<usize>,
 }
 
 impl DisjointSet {
